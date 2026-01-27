@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(void){
+  double N, X;
+  scanf("%lf", &N);
+  X = N / 1.08;
+  int X_i = (int)X;
+  
+  if( (int)(X_i * 1.08) == (int)N ) 
+  printf("%d", X_i);
+  
+  else if((int)((X_i + 1) *1.08) == (int)N)
+  printf("%d", X_i + 1);
+
+  else printf("%s", ":(");
+  
+  return 0;
+}
