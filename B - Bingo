@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void){
+  int A[15], N, b[15];
+  bool dp[15] = {false};
+  dp[0] = true;
+  
+  for(int i=1; i<=9; i++){
+    scanf("%d", &A[i]);
+  }
+  scanf("%d", &N);
+  for(int j=1; j<=N; j++){
+    scanf("%d", &b[j]);
+  }
+  
+  for(int s=1; s<=N; s++){
+    for(int t=1; t<=9; t++){
+      if(b[s]==A[t]) dp[t] = true;
+  }
+}
+  
+  if(dp[1]==true&&dp[2]==true&&dp[3]==true) printf("%s", "Yes");
+  else if(dp[4]==true&&dp[5]==true&&dp[6]==true) printf("%s", "Yes");
+  else if(dp[7]==true&&dp[8]==true&&dp[9]==true) printf("%s", "Yes");
+  
+  else if(dp[1]==true&&dp[4]==true&&dp[7]==true) printf("%s", "Yes");
+  else if(dp[2]==true&&dp[5]==true&&dp[8]==true) printf("%s", "Yes");
+  else if(dp[3]==true&&dp[6]==true&&dp[9]==true) printf("%s", "Yes");
+  
+  else if(dp[1]==true&&dp[5]==true&&dp[9]==true) printf("%s", "Yes");
+  else if(dp[3]==true&&dp[5]==true&&dp[7]==true) printf("%s", "Yes");
+  
+  else printf("%s", "No");
+  return 0;
+}
