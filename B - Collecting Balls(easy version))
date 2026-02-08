@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int ab(int n){
+  if(n>=0) return n;
+  else if(n<0) return -n;
+}
+
+int main(void){
+  int N, K, x[105], sum=0;
+  scanf("%d %d", &N, &K);
+  
+  for(int i=1 ;i<=N ;i++){
+    scanf("%d", &x[i]);
+    int A= ab(x[i]), B= ab(x[i]-K);
+    if(A>B) sum += 2*B;
+    else sum += 2*A;
+  }
+  printf("%d", sum);
+}
