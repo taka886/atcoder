@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(void){
+  int K, N, A[1000000], t, max_d=0;
+  scanf("%d %d", &K, &N);
+  
+  for(int i=0; i<N; i++){
+    scanf("%d", &A[i]);
+  }
+  for(int j=0; j<N; j++){
+  if(j==N-1){
+    t = K - A[j] + A[0];
+  }
+  else{
+    t = A[j+1] - A[j];
+  }
+    if(t > max_d) max_d = t;
+  }
+  printf("%d", K-max_d);
+  return 0;
+}
