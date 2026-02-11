@@ -21,3 +21,6 @@ Easy100のB - Collecting Ballsを解いた。改善点は、配列を使わず�
 
 #2026/02/10
 Easy100のB - Card Game for TwoとB - Break Numberを解いた。前者についてはライブラリを自作せず使うことで時間短縮を心がける。後者はiをループ内で使うときに、ループを破壊してしまうことに気を付ける。
+
+#2026/02/11
+Easy100のC - Traveling Salesman around Lakeを解いた。初見で15分程度で解けたことが成長を感じる。巨大配列をmain関数の外に書いて、ヒープ領域で管理すると直良し。
