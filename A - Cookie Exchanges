@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void){
+  long long A, B, C, t_1, t_2, t_3, cnt=0;
+  scanf("%lld %lld %lld", &A, &B, &C);
+  if((A==B&&B==C)&&A%2==0){
+  printf("%d", -1);
+  }
+  else{
+    while(A%2==0&&B%2==0&&C%2==0){
+      t_1 = A/2;
+      t_2 = B/2;
+      t_3 = C/2;
+      A = t_2 + t_3;
+      B = t_1 + t_3;
+      C = t_1 + t_2;
+      cnt++;
+    }
+  printf("%lld", cnt);
+  }
+  return 0;
+}
