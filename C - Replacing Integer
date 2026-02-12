@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+long long ab(long long a){
+  if(a<0) return -a;
+  else return a;
+}
+
+int main(void){
+  long long N, K;
+  scanf("%lld %lld", &N, &K);
+  
+  if(N%K > K/2) printf("%lld", ab(N%K-K));
+  else{
+    printf("%lld", N%K);
+  }
+  return 0;
+}
