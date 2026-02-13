@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int A[100005], n[100005]; 
+
+int main(void){
+  int N;
+  scanf("%d", &N);
+  for(int i=1; i<=N; i++){
+    scanf("%d", &A[i]);
+    n[A[i]] = i;
+  }
+  
+  for(int j=1; j<=N; j++) printf("%d ", n[j]);
+  return 0;
+}
