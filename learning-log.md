@@ -25,6 +25,8 @@ Easy100のB - Card Game for TwoとB - Break Numberを解いた。前者につい
 #2026/02/11
 Easy100のC - Traveling Salesman around Lakeを解いた。初見で15分程度で解けたことが成長を感じる。巨大配列をmain関数の外に書いて、ヒープ領域で管理すると直良し。
 
-
 #2026/02/12
 Easy100のA - Cookie ExchangesとC - Replacing Integerを解いた。前者では例外処理が苦手であることが課題。後者は自力で解けたので成長を感じた。全探索か数学的性質かの見極めは上達を感じる。
+
+#2026/02/13
+Easy100のC - Divide the ProblemsとC - Go to Schoolを解いた。前者ではqsortで配列ソートを行うことがポイント、後者では受け取りを行うだけなので配列は一つでよい。
