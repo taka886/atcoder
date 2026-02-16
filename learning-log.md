@@ -30,3 +30,6 @@ Easy100のA - Cookie ExchangesとC - Replacing Integerを解いた。前者で�
 
 #2026/02/13
 Easy100のC - Divide the ProblemsとC - Go to Schoolを解いた。前者ではqsortで配列ソートを行うことがポイント、後者では受け取りを行うだけなので配列は一つでよい。
+
+#2026/02/16
+Easy100のC - Alchemistを解いた。doubleは受け取り時lf、qsort時にゴミを含まない(a[0])、比較関数は1, 0, -1の3つで考える。
