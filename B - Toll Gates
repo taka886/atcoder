@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void){
+  int N, M, X, A[105]={0}, t, c_left=0, c_right=0;
+  scanf("%d %d %d", &N, &M, &X);
+  
+  for(int i=0; i<M; i++){
+    scanf("%d", &t);
+    A[t] = 1;
+  }
+  
+  for(int j=X; j>=0; j--){
+    c_left += A[j];
+  }
+  
+  for(int j=X; j<=N; j++){
+    c_right += A[j];
+  }
+  if(c_right>c_left) printf("%d", c_left);
+  else printf("%d", c_right);
+  return 0;
+}
