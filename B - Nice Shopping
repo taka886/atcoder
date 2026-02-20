@@ -1,0 +1,23 @@
+#include <stdio.h>
+  int r[100005], e[100005];
+int main(void){
+  int A, B, M, min_r=100000, min_e=100000, x, y, c, d_cost;
+  scanf("%d %d %d", &A, &B, &M);
+  
+  for(int i=0; i<A; i++){
+    scanf("%d", &r[i]);
+    if(min_r > r[i]) min_r = r[i];
+  }
+  for(int i=0; i<B; i++){
+    scanf("%d", &e[i]);
+    if(min_e > e[i]) min_e = e[i];
+  }
+  int min_total = min_r + min_e;
+  for(int i=0; i<M; i++){
+    scanf("%d %d %d", &x, &y, &c);
+    d_cost = r[x-1] + e[y-1] - c;
+    if(min_total > d_cost) min_total = d_cost;
+  }
+  printf("%d", min_total);
+  return 0;
+}
