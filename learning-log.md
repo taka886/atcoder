@@ -45,3 +45,6 @@ Easy100のA - Candy Distribution Againを解いた。実装の面で勉強にな
 
 #2026/02/20
 Easy100のB - ChocolateとB - Nice Shoppingを解いた。前者ではwhileを使わず割り算で解くことがポイント
+
+#2026/02/21
+Easy100のC - Count OrderとD - Caracal vs Monsterを解いた。前者は今まで覚えてきた情報保存を生かして解くいい練習だった。後者からは問題文を読むことの大切さを学んだ。
