@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+long long index_2(long long a){
+  long long n=0;
+  while(a > 1){
+    a /= 2;
+    n++;
+  }
+  return n;
+}
+
+int main(void){
+  long long h, n, t=0, total=0;
+  scanf("%lld", &h);
+  n = index_2(h);
+  for(long long i=0; i<=n; i++){
+    if(i==0) t=1;
+    else t *= 2;
+    total += t;
+  }
+  printf("%lld", total);
+  return 0;
+}
