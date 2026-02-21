@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int kaijo(int a){
+  if(a>0){
+    return a*kaijo(a-1);
+  }
+  else if(a==0) return 1;
+}
+int sum_int(const void *a, int N){
+  int *A = (int *)a, sum=0;
+  for(int i=0; i<N; i++){
+    sum += *(A + i);
+  }
+  return sum;
+}
+
+int main(void){
+  int N, p, q, num_p=0, num_q=0, d[15]={0}, t;
+  scanf("%d", &N);
+  
+  for(int i=1; i<=N; i++){
+    scanf("%d", &p);
+    d[p] = 1;
+    t = sum_int(d, p) + 1;
+    num_p += kaijo(N-i) * (p-t);
+  }
+  int d_2[15] = {0};
+  for(int i=1; i<=N; i++){
+    scanf("%d", &q);
+    d_2[q] = 1;
+    t = sum_int(d_2, q) + 1;
+    num_q += kaijo(N-i) * (q-t);
+  }
+ 
+  printf("%d", abs(num_p - num_q));
+  return 0;
+}
