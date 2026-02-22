@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(void){
+  long long N, A, B;
+  scanf("%lld %lld %lld", &N, &A, &B);
+  
+  if(A==0) printf("%d", 0);
+  else if(B==0) printf("%lld", N);
+  
+  else{
+    long long n = N / (A+B);
+    long long t = N - n * (A+B);
+    if(t < A) printf("%lld", t + n * A);
+    else printf("%lld", (1 + n)*A);
+  }
+  
+  return 0;
+}
