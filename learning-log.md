@@ -48,3 +48,6 @@ Easy100のB - ChocolateとB - Nice Shoppingを解いた。前者ではwhileを�
 
 #2026/02/21
 Easy100のC - Count OrderとD - Caracal vs Monsterを解いた。前者は今まで覚えてきた情報保存を生かして解くいい練習だった。後者からは問題文を読むことの大切さを学んだ。
+
+#2026/02/22
+Easy100のB - Count BallsとB - 754を解いた。後者はループ一つでも可能なことに注意
