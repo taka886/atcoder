@@ -51,3 +51,6 @@ Easy100のC - Count OrderとD - Caracal vs Monsterを解いた。前者は今ま
 
 #2026/02/22
 Easy100のB - Count BallsとB - 754を解いた。後者はループ一つでも可能なことに注意
+
+#2026/02/23
+Easy100のB - Ruined SquareとB - Variedを解いた。
