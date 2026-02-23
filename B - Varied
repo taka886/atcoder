@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+  int len;
+  char s[30];
+  scanf("%s", s);
+  len = strlen(s);
+  
+  for(int i=0; i<len; i++){
+    for(int j=0; j<i; j++){
+      if(s[i] == s[j]){
+        printf("%s\n", "no");
+        return 0;
+      }
+    }
+  }
+  printf("%s\n", "yes");
+  
+  return 0;
+}
