@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+  char s_s[10000000];
+int main(void){
+  long long A, B;
+  char *s;
+  scanf("%lld %lld %s", &A, &B, s_s);
+  s = s_s;
+  for(long long i=0; i<A+B+1; i++){
+    if(i<A&&*(s+i)=='-'){
+      printf("%s", "No");
+      return 0;
+    }
+    else if(i == A&&*(s+i)!='-'){
+      printf("%s", "No");
+      return 0;
+    }
+    else if(A<i&&*(s+i)=='-'){
+      printf("%s", "No");
+      return 0;
+    }
+  }
+  printf("%s", "Yes");
+  return 0;
+}
