@@ -54,3 +54,9 @@ Easy100のB - Count BallsとB - 754を解いた。後者はループ一つでも
 
 #2026/02/23
 Easy100のB - Ruined SquareとB - Variedを解いた。
+
+#2026/02/24
+Easy100のB - Increment Decrementを解いた。
+
+#2026/02/25
+Easy100のB - Postal CodeとB - Not Foundを解いた。
