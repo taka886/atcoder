@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+  char s[100005];
+  
+int main(void){
+  
+  int a[50] = {0}, N;
+  scanf("%s", s);
+  N = strlen(s);
+  for(int i=0; i<N; i++){
+    a[s[i] - 'a'] = 1;
+  }
+  for(int i=0; i<26; i++){
+    if(a[i] == 0){
+      printf("%c", 'a' + i);
+      return 0;
+    }
+  }
+  printf("%s", "None");
+  return 0;
+}
