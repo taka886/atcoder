@@ -63,3 +63,6 @@ Easy100のB - Postal CodeとB - Not Foundを解いた。
 
 #2026/02/26
 Easy100のC - PrisonとC - Attack Survivalを解いた。計算量とメモリの意識、問題の本質を見抜く力の成長を感じる。
+
+#2026/02/28
+ABCコンテストに参加した。C - Insert and Erase Aまで解けた。C問題についてはwhileで状態に着目、ポインタを使ってループ変数と配列の管理を省いた方が効率が良かった。
