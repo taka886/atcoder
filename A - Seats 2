@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(void){
+  int N, M;
+  scanf("%d %d", &N, &M);
+  if(N%2==0){
+    if(N/2 >= M) printf("%s", "Yes");
+    else printf("%s", "No");
+  }
+  else{
+    if((N/2) + 1 >= M) printf("%s", "Yes");
+    else printf("%s", "No");
+  }
+  return 0;
+}
