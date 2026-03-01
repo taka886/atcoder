@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main(void){
+  int a[10], t, min=10, min_id=4, sum=0;
+  for(int i=0; i<5; i++){
+    scanf("%d", &a[i]);
+    if(a[i] % 10 != 0&&a[i] % 10 < min){
+      min_id = i;
+      min = a[i] % 10;
+    }
+  }
+  
+  t = a[4];
+  a[4] = a[min_id];
+  a[min_id] = t;
+  
+  for(int i=0; i<4; i++){
+    if(a[i] % 10 != 0){
+      sum += ( (a[i] / 10) + 1 ) * 10;
+    }
+    else sum += a[i];
+  }
+  sum += a[4];
+  printf("%d", sum);
+  return 0;
+}
