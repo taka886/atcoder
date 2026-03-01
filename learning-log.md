@@ -66,3 +66,6 @@ Easy100のC - PrisonとC - Attack Survivalを解いた。計算量とメモリ�
 
 #2026/02/28
 ABCコンテストに参加した。C - Insert and Erase Aまで解けた。C問題についてはwhileで状態に着目、ポインタを使ってループ変数と配列の管理を省いた方が効率が良かった。
+
+#2026/03/01
+Easy100のB - Five DishesとC - Exception Handlingを解いた。前者は配列を使わずその場計算で、後者はもう一つの変数で2番目の最大値を求めるとさらに良い。
