@@ -69,3 +69,6 @@ ABCコンテストに参加した。C - Insert and Erase Aまで解けた。C問
 
 #2026/03/01
 Easy100のB - Five DishesとC - Exception Handlingを解いた。前者は配列を使わずその場計算で、後者はもう一つの変数で2番目の最大値を求めるとさらに良い。
+
+#2026/03/02
+Easy100のA - Range ProductとC - Low Elementsを解いた。
