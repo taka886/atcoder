@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(void){
+  long long a, b;
+  scanf("%lld %lld", &a, &b);
+  if(a>0&&b>0){
+    printf("%s\n", "Positive");
+  }
+  else if((a==0||b==0)||(a<0&&b>0)){
+    printf("%s\n", "Zero");
+  }
+  else{
+    if((b-a)%2==0) printf("%s\n", "Negative");
+    else printf("%s\n", "Positive");
+  }
+  return 0;
+}
