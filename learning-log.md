@@ -72,3 +72,6 @@ Easy100のB - Five DishesとC - Exception Handlingを解いた。前者は配列
 
 #2026/03/02
 Easy100のA - Range ProductとC - Low Elementsを解いた。
+
+#2026/03/04
+Easy100のB - Foods Loved by EveryoneとB - 美しい文字列、C - Coloring Colorfullyを解いた。C問についてはその場で理想文字列を作って比較するのが良し。
