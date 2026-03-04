@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+  char s[100005];
+int main(void){
+  long long od_zcnt=0, ev_zcnt=0, N=0;
+  char *a;
+  scanf("%s", s);
+  a = s;
+  while(*a){
+    N++;
+    if(N%2==1){
+      if(*a == '0') od_zcnt++;
+      a++;
+    }
+    else{
+      if(*a == '0') ev_zcnt++;
+      a++;
+    }
+  }
+  if(N==1) printf("%d", 0);
+  else if(N%2==0&&N!=1){
+    if(od_zcnt>ev_zcnt) printf("%lld", (N/2) - od_zcnt + ev_zcnt);
+    else printf("%lld", (N/2) - ev_zcnt + od_zcnt);
+  }
+  else{
+    if(od_zcnt>ev_zcnt) printf("%lld", (N/2) + 1 - od_zcnt + ev_zcnt);
+    else printf("%lld", (N/2) - ev_zcnt + od_zcnt);
+  }
+  return 0;
+}
