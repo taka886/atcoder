@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(void){
+  int a, b, d_1, d_2, d_4, d_5, sum=0;
+  scanf("%d %d", &a, &b);
+  for(int i=a; i<=b; i++){
+    d_1 = i / 10000;
+    d_2 = (i / 1000)% 10;
+    d_4 = (i / 10) % 10;
+    d_5 = i % 10;
+    if(d_5 == d_1&&d_2 == d_4) sum++;
+  }
+  printf("%d", sum);
+  return 0;
+}
