@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(void){
+  int N, diff, diff_M=0, id=0;
+  long long f_num, t;
+  scanf("%d %lld", &N, &f_num);
+  for(int i=1; i<N; i++){
+    scanf("%lld", &t);
+    if(t > f_num||i == N - 1){
+      if(i == N - 1&&f_num >= t) diff = i - id;
+      else diff = i - id - 1;
+      id = i;
+      if(diff_M < diff) diff_M = diff;
+    }
+    f_num = t;
+  }
+  printf("%d", diff_M);
+  return 0;
+}
