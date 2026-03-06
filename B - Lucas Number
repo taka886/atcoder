@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(void){
+  long long N, a[100];
+  a[0] = 2;
+  a[1] = 1;
+  scanf("%lld", &N);
+  if(N>1){
+  for(int i=2; i<=N; i++){
+    a[i] = a[i-1] + a[i-2];
+  }
+  printf("%lld\n", a[N]);
+}
+  else printf("%lld\n", a[N]);
+  return 0;
+}
