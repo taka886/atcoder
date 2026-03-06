@@ -75,3 +75,9 @@ Easy100のA - Range ProductとC - Low Elementsを解いた。
 
 #2026/03/04
 Easy100のB - Foods Loved by EveryoneとB - 美しい文字列、C - Coloring Colorfullyを解いた。C問についてはその場で理想文字列を作って比較するのが良し。
+
+#2026/03/05
+Easy100のB - Palindromic Numbersを解いた。制約を見て全探索を忘れない。
+
+#2026/03/06
+Easy100のA - FairnessとB - Lucas Number、C - Lowerを解いた。1つ目は、なにを求めるものの性質を見抜く。3個目は、求める値に対してどの値が必要で変数or配列どちらを使うかの判断力に成長を感じる。引き算でごりおさずに逐次処理でバグを無くす思考があればさらにGood
