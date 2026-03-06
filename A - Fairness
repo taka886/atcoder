@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main(void){
+  long long k, a, b, c;
+  scanf("%lld %lld %lld %lld", &a, &b, &c, &k);
+  if(k%2 == 0) printf("%lld", a-b);
+  else printf("%lld", -(a - b));
+  return 0;
+}
