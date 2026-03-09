@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+  
+int main(void){
+  char a[110], b[110];
+  int size_a, size_b;
+  scanf("%s %s", a, b);
+  size_a = strlen(a);
+  size_b = strlen(b);
+  if(size_a > size_b){
+    printf("%s\n", "GREATER");
+    return 0;
+  }
+  else if(size_a==size_b){
+    for(int i=0; i<size_a; i++){
+      if(a[i] > b[i]){
+        printf("%s\n", "GREATER");
+        return 0;
+      }
+      else if(a[i] < b[i]){
+        printf("%s\n", "LESS");
+        return 0;
+      }
+    }
+  }
+  else{
+    printf("%s\n", "LESS");
+    return 0;
+  }
+  printf("%s\n", "EQUAL");
+  return 0;
+}
