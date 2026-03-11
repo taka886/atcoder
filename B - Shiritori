@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+  
+  char s[105][15]={0}, ed='a';
+  int N, size;
+  scanf("%d", &N);
+  for(int i=0; i<N; i++){
+    scanf("%s", s[i]);
+    size = strlen(s[i]);
+    if(i==0||ed == s[i][0]){
+      ed = s[i][size - 1];
+      for(int j=0; j<i; j++){
+        if(strcmp(s[i], s[j]) == 0){
+          printf("%s\n", "No");
+          return 0;
+        }
+      }
+    }
+    else{
+      printf("%s\n", "No");
+      return 0;
+    }
+  }
+  printf("%s\n", "Yes");
+  return 0;
+}
