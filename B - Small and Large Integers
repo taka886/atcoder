@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(void){
+  long long A, B;
+  int K;
+  scanf("%lld %lld %d", &A, &B, &K);
+  if(2*K > B - A + 1){
+    for(long long i=A; i<=B; i++) printf("%lld\n", i);
+  }
+  else{
+    for(long long i=A; i<=B; i++){
+      printf("%lld\n", i);
+      if(i - A == K-1) i = B - K; // 直後+1なので良し
+    }
+  }
+  return 0;
+}
