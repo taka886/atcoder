@@ -93,3 +93,6 @@ Easy100のB - Counting RoadsとB - Shiritoriを解いた。前者は配列の必
 
 #2026/03/12
 Easy100のB - Good DistanceとB - Small and Large Integersを解いた。前者は全探索なのでバグらせないコードを書くことと、クロックを意識して割り算や浮動小数演算は使わない。後者はfor文での変数変更には気を付ける。
+
+#2026/03/13
+Easy100のC - Tax IncreaseとB - Palaceを解いた。後者ではdoubleを定数倍で省く、関数や初期値をlonglong用にすることに注意
