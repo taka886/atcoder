@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+  long long n, t, a, h, min_id, diff, min_diff=2000000000000;
+  scanf("%lld %lld %lld", &n, &t, &a);
+  for(int i=1; i<=n; i++){
+    scanf("%lld", &h);
+    diff = llabs( 1000 * a - ( 1000 * t - h * 6) );
+    if(min_diff > diff){
+      min_id = i;
+      min_diff = diff;
+    }
+  }
+  printf("%lld", min_id);
+  return 0;
+}
