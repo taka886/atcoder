@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(void){
+  int h, w;
+  char s[106];
+  scanf("%d %d", &h, &w);
+  for(int i=0; i<h; i++){
+    scanf("%s", s);
+    printf("%s\n", s);
+    printf("%s\n", s);
+  }
+  return 0;
+}
