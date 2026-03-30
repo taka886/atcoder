@@ -1,0 +1,17 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void){
+  int N, t, next_target=1;
+  cin >> N;
+  
+  for(int i=0; i<N; i++){
+    cin >> t;
+    if(next_target == t) next_target++;
+  }
+  
+  if(next_target == 1) cout << -1 << '\n';
+  else cout << N - (next_target - 1) << '\n';
+  return 0;
+}
