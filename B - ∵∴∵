@@ -1,0 +1,17 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void){
+  char o[55], e, *p;
+  cin >> o;
+  p = o;
+  
+  while(*p){
+    if(cin >> e) cout << *p << e;
+    else cout << *p;
+    p++;
+  }
+  cout << '\n';
+  return 0;
+}
