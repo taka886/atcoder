@@ -111,3 +111,6 @@ Easy100のB - ∵∴∵を解いた。ポインタ操作に改善。
 
 #2026/04/01
 Easy100のB - A to Z Stringを解いた。名前衝突に注意。
+
+#2026/04/02
+Easy100のA - Wanna go back homeを解いた。
