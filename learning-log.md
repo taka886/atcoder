@@ -114,3 +114,6 @@ Easy100のB - A to Z Stringを解いた。名前衝突に注意。
 
 #2026/04/02
 Easy100のA - Wanna go back homeを解いた。
+
+#2026/04/04
+Easy100のC - Pollを解いた。mapを使って、stringをkeyにしつつ辞書順に並べつつ、出現数を数えられるというのは良い学びだった。
