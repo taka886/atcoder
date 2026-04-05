@@ -1,0 +1,35 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <map>
+using namespace std;
+
+struct rest{
+  int point;
+  int id;
+};
+int main(void){
+  int N;
+  string t;
+  rest s;
+  map <string, vector<rest>> a;
+  cin >> N;
+  
+  for(int i=0; i<N; i++){
+    cin >> t;
+    cin >> s.point;
+    s.id = i + 1;
+    a[t].push_back(s);
+  }
+  
+  for(auto &[city, p] : a){
+    sort(p.begin(), p.end(), [](const rest& a, const rest& b){
+      return a.point > b.point;
+    });
+    int N = p.size();
+    for(int i=0; i<N; i++){
+      cout << p[i].id << '\n';
+    }
+  }
+  return 0;
+}
