@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void){
+  int sum_n=2;
+  char t;
+  string cur, pre;
+  cin >> t;
+  pre += t;
+  if(cin >> t){
+    cur += t;
+    for(int i=0; cin >> t; i++){
+      if(cur != pre){
+        pre = cur;
+        cur = t;
+        sum_n++;
+      }
+      else{
+        cur += t;
+      }
+    }
+    if(cur != pre) cout << sum_n << '\n';
+    else cout << sum_n - 1 << '\n';
+  }
+  else cout << 1 << '\n';
+  return 0;
+}
