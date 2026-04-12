@@ -1,0 +1,20 @@
+#include <iostream>
+#include <algorithm>
+#include <stdlib.h>
+using namespace std;
+
+int main(void){
+  int t, x, v, m;
+  cin >> t;
+  cin >> x;
+  cin >> m;
+  cout << 0 << " " << m << '\n'; 
+  for(int i=1; i<=t; i++){
+    cin >> v;
+    if( abs(v - m) >= x){
+      m = v;
+      cout << i << " " << m << '\n';
+    }
+  }
+  return 0;
+}
