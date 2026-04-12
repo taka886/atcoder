@@ -1,0 +1,70 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+
+struct x{
+  long long p;
+  long long pass_num;
+};
+
+vector<long long> dist(20);
+vector<x> s(1048580);
+
+void all_sneaking(vector<x> &a, vector<long long> &dist, long long n, long long num){
+  if(n == 1){
+    a[0].pass_num = 0;
+    a[1].pass_num = 0;
+    if(dist[n - 1] > 5) a[1].pass_num++;
+    a[0].p = 5 + dist[n - 1];
+    a[1].p = 5 - dist[n - 1];
+  }
+  else{
+    long long num1 = num / 2;
+    long long n1 = n - 1;
+    all_sneaking(a, dist, n1, num1);
+    vector<x> b;
+    long long id = 0;
+    
+    for(long long i=0; i<num1; i++) b.push_back(a[i]);
+    
+    for(long long i=0; i<num1; i++){
+      a[id].pass_num = b[i].pass_num;
+      a[id + 1].pass_num = b[i].pass_num;
+      if(b[i].p > 0 && b[i].p < dist[n - 1] ) a[id + 1].pass_num++;
+      else if(b[i].p < 0 && -b[i].p < dist[n - 1] ) a[id].pass_num++;
+      a[id].p = b[i].p + dist[n - 1];
+      a[id + 1].p = b[i].p - dist[n - 1];
+      id += 2;
+    }
+  }
+  return;
+}
+
+long long njou(long long n){
+  if(n == 0) return 1;
+  else return 2 * njou(n - 1);
+}
+
+int main(void){
+  long long N;
+  cin >> N;
+  long long num = njou(N);
+  for(long long i=0; i<N; i++){
+    cin >> dist[i];
+    dist[i] *= 10;
+  }
+  
+  all_sneaking(s, dist, N, num);
+  
+  long long max_num = 0;
+  
+  for(long long i=0; i<num; i++){
+    if(max_num < s[i].pass_num) max_num = s[i].pass_num;
+  }
+  
+  cout << max_num << '\n';
+  return 0;
+}
