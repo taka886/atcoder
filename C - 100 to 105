@@ -1,0 +1,24 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int get_min(int t){
+  int ten = t / 10, num;
+  ten *= 10;
+  num = ten / 5;
+  if(5 < t - ten) num += 2;
+  else if(t - ten == 0) return num;
+  else num++;
+  return num;
+}
+
+int main(void){
+  long long x, t;
+  cin >> x;
+  t = x % 100;
+  int num = get_min(t);
+  if(x / 100 >= num) cout << 1 << '\n';
+  else cout << 0 << '\n';
+  return 0;
+}
