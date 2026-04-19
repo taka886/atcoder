@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+long long restore(int *a, int d){
+  long long s=0;
+  for(int i=0; i<d; i++){
+    s *= 10;
+    s += a[i];
+  }
+  return s;
+}
+
+int main(void){
+  long long n=0;
+  char t;
+  int N[20], a[20], d = 0;
+  
+  while(cin >> t){
+    N[d] = t - '0';
+    n *= 10;
+    n += N[d];
+    a[d] = 9;
+    d++;
+  }
+  
+  for(int j=0; j < 10; j++){
+    if(j != 0) a[0]--;
+    long long o = restore(a, d);
+    if(o <= n){
+      int sum_d = 0;
+      for(int k=0; k<d; k++) sum_d += a[k];
+      cout << sum_d << '\n';
+      return 0;
+    }
+  }
+  return 0;
+}
