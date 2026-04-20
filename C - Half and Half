@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void){
+  long a, b, c, sum_money, x, y;
+  cin >> a;
+  cin >> b;
+  cin >> c;
+  cin >> x;
+  cin >> y;
+  
+  int basepatern = min(a + b, 2 * c);
+  int basemoney = basepatern * min(x, y);
+  if(x > y){
+    sum_money = min(basemoney + (x - y) * a, basepatern * x);
+  }
+  else if(x == y){
+    sum_money = basemoney;
+  }
+  else{
+    sum_money = min(basemoney + (y - x) * b, basepatern * y);
+  }
+  cout << sum_money << '\n';
+  return 0;
+}
