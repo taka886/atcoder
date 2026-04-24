@@ -1,0 +1,39 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+int ac_num = 0;
+
+struct pro{
+  bool ac;
+  int wnum;
+};
+
+void print(vector<pro> &a, int N){
+  int wa_num = 0;
+  for(int i=1; i<=N; i++){
+    if(a[i].ac == true) wa_num += a[i].wnum;
+  }
+  cout << ac_num << " " << wa_num << '\n';
+  return;
+}
+
+int main(void){
+  int N, M, t;
+  string result;
+  cin >> N;
+  cin >> M;
+  vector<pro> a(N+1, {false, 0});
+  
+  for(int i=0; i<M; i++){
+    cin >> t;
+    cin >> result;
+    if(a[t].ac == false && result == "WA") a[t].wnum++;
+    else if(a[t].ac == false && result == "AC"){
+      ac_num++;
+      a[t].ac = true;
+    }
+  }
+  print(a, N);
+  return 0;
+}
