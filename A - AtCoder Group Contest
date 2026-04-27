@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(void){
+  long long N, Sum=0;
+  cin >> N;
+  long long a_id = (3 * N) - 1, max_id = (3 * N) - 1, min_id = 0;
+  vector<long long> a(3 * N);
+  vector<long long> Min(3 * N);
+  vector<long long> Max(3 * N);
+  for(int i=0; i<3 * N; i++){
+    cin >> Min[i];
+    Max[i] = Min[i];
+  }
+  sort(Min.begin(), Min.end());
+  sort(Max.begin(), Max.end());
+  
+  for(int i=0;i < N;i++){
+    a[ a_id ] = Max[ max_id ];
+    a_id --;
+    max_id --;
+    a[ a_id ] = Max[ max_id ];
+    a_id --;
+    max_id --;
+    a[ a_id ] = Min[ min_id ];
+    min_id ++;
+    a_id --;
+  }
+  
+  
+  for(int i=1; i <= N; i++){
+    Sum += a[(3 * i) - 2];
+  }
+  cout << Sum << '\n';
+  return 0;
+}
