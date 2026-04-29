@@ -1,0 +1,21 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+long long ab(long long a, long long b){
+  if(a >= b) return a-b;
+  if(a < b) return b-a;
+}
+
+int main(void){
+  long long n, a, b;
+  cin >> n;
+  cin >> a;
+  cin >> b;
+  long long dis = ab(a, b);
+  if(dis % 2==0) cout << dis/2 << '\n';
+  else{
+    cout << min((dis/2) + n - b + 1, (dis/2) + a - 1 + 1) << '\n';
+  }
+  return 0;
+}
