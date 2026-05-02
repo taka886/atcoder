@@ -1,0 +1,36 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+long long keijo(long long id){
+  if(id == 0) return 0;
+  long long Sum = 0;
+  while(id != 0){
+    Sum += id;
+    id --;
+  }
+  return Sum;
+}
+
+int main(void){
+  long long id = 1, num=0;
+  vector<char> s(3 * 100005);
+  char t, pre_t;
+  cin >> pre_t;
+  for(long long i=0; cin >> t; i++){
+    if(pre_t != t){
+      pre_t = t;
+      id++;
+    }
+    else{
+      num += keijo(id);
+      id = 1;
+      pre_t = t;
+    }
+  }
+  
+  num += keijo(id);
+  cout << num % 998244353 << '\n';
+  return 0;
+}
