@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <stdlib.h>
+using namespace std;
+
+long long ab_dif(long long i, long long j){
+  if(i > j) return i - j;
+  else return j - i;
+}
+
+long long solve(long long i, long long j){
+  return ab_dif(1, i) + ab_dif(1, j);
+}
+
+int main(void){
+  long long N, Min = 1000000000000;
+  cin >> N;
+
+  for(long long i = 1; i*i<=N; i++){
+    long long t = N;
+    if(t % i == 0){
+      Min = min(solve(t / i, i), Min);
+    }
+  }
+
+  cout << Min << '\n';
+  return 0;
+}
