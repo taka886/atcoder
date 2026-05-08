@@ -168,3 +168,6 @@ abcコンテスト参加。A - Dice、B - 456、C - Not Adjacentは解けた。D
 
 #2026/05/07
 C - Walk on Multiplication Tableを解いた。素直に全探索でよかった。qsortは使わずループで求める。
+
+#2026/05/08
+C - *3 or /2を解いた。素直に全探索を見抜けた。
