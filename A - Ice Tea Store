@@ -1,0 +1,37 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+struct plan{
+  long long per_2l;
+  long long value;
+  long long numl;
+};
+int main(void){
+  long long N, cost=0, id = 0;
+  vector<plan> a(4);
+  
+  a[0].numl = 1;
+  a[1].numl = 2;
+  a[2].numl = 4;
+  a[3].numl = 8;
+  
+  for(int i=0; i<4; i++){
+    cin >> a[i].value;
+    a[i].per_2l = a[i].value * (8/a[i].numl);
+  }
+cin >> N;
+N *= 4;
+sort(a.begin(), a.end(), [](const plan& a, const plan& b) {
+return a.per_2l < b.per_2l; 
+});
+
+while(N != 0){
+cost += (N / a[id].numl) * a[id].value;
+N = N % a[id].numl;
+id++;
+}
+cout << cost << '\n';
+return 0;
+}
