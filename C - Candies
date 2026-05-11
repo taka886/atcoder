@@ -1,0 +1,30 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(void){
+  int n, num=0, M_num=-1;
+  cin >> n;
+  vector< vector<int> > a(2, vector<int>(n));
+  for(int i=0; i<2; i++){
+    for(int j=0; j<n; j++){
+      cin >> a[i][j];
+    }
+  }
+  
+  for(int i=0; i<n; i++){
+    int r = 0;
+    for(int j=0; j<n; j++){
+      num += a[r][j];
+      if(i == j){
+        r++;
+        num += a[r][j];
+      }
+    }
+    M_num = max(num, M_num);
+    num = 0;
+  }
+  cout << M_num << '\n';
+  return 0;
+}
