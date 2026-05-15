@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+long long solve(vector<char> &s, int n){ // 貪欲でカバーしきれない過去の駒の変換をカバーする。その際、連続する黒の個数を保存
+  long long B_s=0, num = 0; 
+  for(int i=1; i<=n; i++){
+    if(s[i] == 'W'){
+      num += B_s;
+    }
+    else B_s++;
+  }
+  return num;
+}
+
+int main(void){
+  int n=0;
+  char t;
+  vector<char> s;
+  s.push_back('N');
+  for(int i=0; cin >> t; i++){
+    s.push_back(t);
+    n++;
+  }
+  cout << solve(s, n) << '\n';
+  return 0;
+}
