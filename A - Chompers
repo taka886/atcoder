@@ -1,0 +1,15 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void){
+  int n;
+  string t;
+  cin >> t;
+  cin >> n;
+  for(int i=n; i<t.size() - n; i++){
+    cout << t[i];
+  }
+  cout << '\n';
+  return 0;
+}
