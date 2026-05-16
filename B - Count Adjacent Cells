@@ -1,0 +1,43 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void){
+  int h, w;
+  cin >> h;
+  cin >> w;
+  if(h == 1 && w == 1){
+    cout << 0 << '\n';
+  }
+  else if(w == 1){
+    for(int j = 0; j<h; j++){
+      if(j == 0 || j == h - 1) cout << 1 << '\n';
+      else cout << 2 << '\n';
+    }
+  }
+  else if(h == 1){
+    for(int i = 0; i<w; i++){
+      if(i == 0 || i == w - 1) cout << 1 << (i == w - 1 ? "\n" : " ");
+      else cout << 2 << " ";
+    }
+  }
+  else{
+    for(int i=0; i<h; i++){
+      for(int j=0; j<w; j++){
+        if(i == 0 || i == h - 1 || j == 0 || j == w - 1){
+          if(i == 0 && j == 0) cout << 2 << " ";
+          else if(i == 0 && j == w - 1) cout << 2 << '\n';
+          else if(i == h - 1 && j == 0) cout << 2 << " ";
+          else if(i == h - 1 && j == w - 1) cout << 2 << '\n';
+          else{
+            cout << 3 << (j == w - 1 ? "\n" : " ");
+          }
+        }
+        else{
+          cout << 4 << " ";
+        }
+      }
+    }
+  }
+  return 0;
+}
