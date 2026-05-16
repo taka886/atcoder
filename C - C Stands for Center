@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+long long solve(long long n, vector<char> &s){
+  long long SUM = 0;
+  for(long long i=1; i<=n; i++){
+    if(s[i] == 'C'){
+      long long l;
+      l = min(i - 1, n - i);
+      SUM += l+1;
+    }
+  }
+  return SUM;
+}
+
+int main(void){
+  long long n=0;
+  char t;
+  vector<char> s;
+  s.push_back('N');
+  for(long long i=0; cin >> t; i++){
+    n++;
+    s.push_back(t);
+  }
+  cout << solve(n, s) << '\n';
+  return 0;
+}
