@@ -1,0 +1,19 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void){
+  string s;
+  cin >> s;
+  int n = s.size() - 2;
+  for(int i=n-1; i>=0; i-=2){
+    for(int j = 0; j <= i/2; j++){
+      if(s[j] != s[j + i/2 + 1]) break;
+      if(j == i/2){
+        cout << i + 1 << '\n';
+        return 0;
+      }
+    }
+  }
+  return 0;
+}
