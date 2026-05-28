@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(void){
+  int n;
+  int free_color=0;
+  int fixed_color=0;
+  cin >> n;
+  vector<bool> m(8, false);
+  for(int i=0; i<n; i++){
+    int a;
+    cin >> a;
+    if((a / 400) > 7) free_color++;
+    else{
+      if(!m[a / 400]){
+        m[a / 400] = true;
+        fixed_color++;
+      }
+    }
+  }
+  
+  if(fixed_color > 0) cout << fixed_color << " " << fixed_color + free_color << '\n';
+  else cout << 1 << " " << fixed_color + free_color << '\n';
+  
+  return 0;
+}
