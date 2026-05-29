@@ -1,0 +1,68 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <queue>
+using namespace std;
+
+struct coordinate{
+  int x;
+  int y;
+};
+
+bool solve_bfs(int h, int w, vector<vector<char>> &m){
+  vector<vector<char>> p(h, vector<char>(w, 'W'));
+  queue<coordinate> q;
+  
+  for(int i=0; i<h; i++){
+    for(int j=0; j<w; j++){
+      if(m[i][j] == '#' && p[i][j] == 'W'){
+        if(i + 1 <= h - 1 && m[i + 1][j] == '#') q.push({i + 1, j});
+        if(j + 1 <= w - 1 && m[i][j + 1] == '#') q.push({i, j + 1});
+        if(i - 1 >= 0 && m[i - 1][j] == '#') q.push({i - 1, j});
+        if(j - 1 >= 0 && m[i][j - 1] == '#') q.push({i, j - 1});
+        if(q.empty()) return false;
+        p[i][j] = 'B';
+        while(!q.empty()){
+          coordinate cur;
+          cur = q.front();
+          q.pop();
+          if(p[cur.x][cur.y] != 'B'){
+            if(cur.x + 1 <= h - 1 && m[cur.x + 1][cur.y] == '#' && p[cur.x + 1][cur.y] == 'W'){
+              q.push({cur.x + 1, cur.y});
+              p[cur.x + 1][cur.y] = 'G';
+            }
+            if(cur.y + 1 <= w - 1 && m[cur.x][cur.y + 1] == '#' && p[cur.x][cur.y + 1] == 'W'){
+              q.push({cur.x, cur.y + 1});
+              p[cur.x][cur.y + 1] = 'G';
+            }
+            if(cur.x - 1 >= 0 && m[cur.x - 1][cur.y] == '#' && p[cur.x - 1][cur.y] == 'W'){
+              q.push({cur.x - 1, cur.y});
+              p[cur.x - 1][cur.y] = 'G';
+            }
+            if(cur.y - 1 >= 0 && m[cur.x][cur.y - 1] == '#' && p[cur.x][cur.y - 1] == 'W'){
+              q.push({cur.x, cur.y - 1});
+              p[cur.x][cur.y - 1] = 'G';
+            }
+            p[cur.x][cur.y] = 'B';
+          }
+        }
+      }
+    }
+  }
+  return true;
+}
+
+int main(void){
+  int h, w;
+  cin >> h;
+  cin >> w;
+  vector<vector<char>> m(h, vector<char>(w));
+  for(int i=0; i<h; i++){
+    for(int j=0; j<w; j++){
+      cin >> m[i][j];
+    }
+  }
+  if(solve_bfs(h, w, m)) cout << "Yes" << '\n';
+  else cout << "No" << '\n';
+  return 0;
+}
