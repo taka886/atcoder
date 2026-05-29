@@ -195,3 +195,6 @@ D - ModSumとD - Banned Kを解いた。どちらもそこまで難しくなか�
 
 #2026/05/28
 C - Colorful Leaderboardを解いた。シュミレーションか状態管理かを考え、必要な情報のみで解く癖をつける。
+
+#2026/05/29
+C - TogetherとC - Grid Repainting 2を解いた。前者はok。後者は、BFSなど使わずに、孤立マスかを確認するだけでおけだった。
