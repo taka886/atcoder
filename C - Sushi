@@ -1,0 +1,33 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <math.h>
+using namespace std;
+
+int main(void){
+  long long n, m, num=0;
+  cin >> n;
+  cin >> m;
+  vector<long long> syari(n);
+  vector<long long> neta(m);
+  for(long long i=0; i<n; i++){
+    cin >> syari[i];
+  }
+  for(long long i=0; i<m; i++){
+    cin >> neta[i];
+  }
+  sort(syari.begin(), syari.end());
+  sort(neta.begin(), neta.end());
+  long long id_max = min(n, m);
+  long long id_n=0;
+  
+  for(long long id_s = 0; id_s < n; id_s++){
+    if(neta[id_n] <= syari[id_s] * 2){
+      num++;
+      id_n++;
+      if(id_n == m) break;
+    }
+  }
+  cout << num << '\n';
+  return 0;
+}
