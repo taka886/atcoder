@@ -1,0 +1,27 @@
+#include <iostream>
+#include <algorithm>
+#include <math.h>
+using namespace std;
+
+int main(void){
+  long long t, x_1, y_1, x_2, y_2, r_1, r_2, dis, cr;
+  cin >> t;
+  for(long long i=0; i<t; i++){
+    cin >> x_1;
+    cin >> y_1;
+    cin >> r_1;
+    cin >> x_2;
+    cin >> y_2;
+    cin >> r_2;
+    dis = (x_1 - x_2)*(x_1 - x_2) + (y_1 - y_2)*(y_1 - y_2);
+    cr = (r_1 + r_2)*(r_1 + r_2);
+    long long large_r = max(r_1, r_2);
+    long long small_r = min(r_1, r_2);
+    if(dis > cr) cout << "No" << '\n';
+    else{
+      if(double(small_r) + double(sqrt(dis)) < (double)large_r) cout << "No" << '\n';
+      else cout << "Yes" << '\n';
+    }
+  }
+  return 0;
+}
