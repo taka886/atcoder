@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(void){
+  int n, q;
+  bool is_id = false;
+  cin >> n;
+  cin >> q;
+  vector<int> m(n+1, 0);
+  vector<int> id(n+1, 0);
+  for(int i=1; i<=n; i++){
+    cin >> m[i];
+    id[m[i]] = i;
+  }
+  
+  for(int i=0; i<q; i++){
+    int t;
+    cin >> t;
+    if(t == 1){
+      int s, u;
+      cin >> s;
+      cin >> u;
+      if(is_id){
+        swap(m[id[s]], m[id[u]]);
+        swap(id[s], id[u]);
+        continue;
+      }
+      swap(id[m[s]], id[m[u]]);
+      swap(m[s], m[u]);
+    }
+    else{
+      is_id = ( is_id ? false : true);
+    }
+  }
+  for(int i=1; i<=n; i++){
+    cout << (is_id ? id[i] : m[i]) << (i == n ? "\n" : " ");
+  }
+  return 0;
+}
