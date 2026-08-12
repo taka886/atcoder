@@ -1,0 +1,59 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <utility>
+#include <set>
+using namespace std;
+int n, q;
+vector<pair<int, int>> m;
+
+pair<int, int> search(int a){
+  for(int i=0; i<q; i++){
+    if(m[i].first != a && m[i].second != a) return m[i];
+  }
+  return m[q];
+}
+
+bool judge(int a, int b){
+  for(int i=0; i<q; i++){
+    if(m[i].first != a && m[i].second != b && m[i].first != b && m[i].second != a){
+      return false;
+    }
+  }
+  return true;
+}
+
+int count_pair(){
+  int cnt = 0;
+  set<pair<int, int>> s;
+  pair<int, int> t;
+  for(int i=0; i<2; i++){
+    int left = (i == 0 ? m[0].first : m[0].second);
+    t = search(left);
+    if(t.first == -1 && !(m[0].first == m[0].second && i != 0) ){
+      cnt += n - 1 - i;
+      continue;
+    }
+    if(i != 0){
+      if(t.first != m[0].first && judge(left, t.first)) s.insert({min(left, t.first), max(left, t.first)});
+      if(t.second != m[0].first && judge(left, t.second)) s.insert({min(left, t.second), max(left, t.second)});
+      break;
+    }
+    if(judge(left, t.first)) s.insert({min(left, t.first), max(left, t.first)});
+    if(judge(left, t.second)) s.insert({min(left, t.second), max(left, t.second)});
+  }
+  cnt += s.size();
+  return cnt;
+}
+
+int main(void){
+  cin >> n >> q;
+  m.resize(q+1);
+  m[q].first = -1;
+  m[q].second = -1;
+  for(int i=0; i<q; i++){
+    cin >> m[i].first >> m[i].second;
+  }
+  cout << count_pair() << '\n';
+  return 0;
+}
