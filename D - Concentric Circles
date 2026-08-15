@@ -1,0 +1,83 @@
+#include <iostream>
+#include <algorithm>
+#include <math.h>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+class Point{
+    
+    public:
+    long long x, y;
+    
+    Point(long long x, long long y): x(x), y(y) {}
+    
+    Point operator + (const Point &p) const {return Point(x + p.x, y + p.y); }
+    Point operator - (const Point &p) const {return Point(x - p.x, y - p.y); }
+    Point operator * (const double &a) const {return Point(x * a, y * a); }
+    Point operator / (const double &a) const {return Point(x / a, y / a); }
+    
+    long long norm() const {
+        return x * x + y * y;
+    }
+    
+    double abst() const {
+        return sqrt(norm());
+    }
+    
+    bool operator < (const Point &p) const {
+        return x != p.x ? x < p.x : y < p.y;
+    }
+    bool operator == (const Point &p) const {
+        return (x - p.x == 0) && (y - p.y == 0);
+    }
+};
+typedef Point Vector;
+
+long long dot(const Point &a, const Point &b){
+    return a.x * b.x + a.y * b.y;
+}
+
+long long cross(const Point &a, const Point &b){
+    return a.x * b.y - a.y * b.x;
+}
+
+bool ifcross(const Point &p, const Point &p0, const Point &p1){
+    Point a = p1 - p0;
+    Point b = p0 - p1;
+    Point c = p - p0;
+    Point d = p - p1;
+    return (dot(a, c) >= 0 && dot(b, d) >= 0);
+}
+
+int main(void){
+  long long n;
+  cin >> n;
+  vector<long long> m(8);
+  
+  for(long long i=0; i<n; i++){
+    for(int j=0; j<8; j++){
+      cin >> m[j];
+    }
+    Point p(m[0], m[1]);
+    Point q(m[2], m[3]);
+    Point r(m[4], m[5]);
+    Point s(m[6], m[7]);
+    Point m1 = p + q;
+    Point m2 = r + s;
+    Point m = m1 - m2;
+    Point a = p - q;
+    Point b = r - s;
+    if(dot(m, a) == 0){
+      cout << "Yes" << '\n';
+      continue;
+    }
+    
+    if(cross(a, b) == 0){
+      cout << "No" << '\n';
+      continue;
+    }
+    cout << "Yes" << '\n';
+  }
+  return 0;
+}
