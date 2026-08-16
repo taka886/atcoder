@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+using namespace std;
+#define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+const long long infty = 1000000000000000;
+
+int main(void){
+  long long n, dist=0;
+  cin >> n;
+  set<long long> s;
+  s.insert(infty);
+  s.insert(-infty);
+  rep(i, n){
+    long long t;
+    cin >> t;
+    s.insert(t);
+  }
+  
+  long long cur = 0;
+  rep(i, n){
+    decltype(s)::iterator itleft = s.lower_bound(cur);
+    decltype(s)::iterator itright = s.upper_bound(cur);
+    itleft--;
+    if((*itright) - cur < cur - (*itleft)){
+      dist += (*itright) - cur;
+      s.erase(cur);
+      cur = *itright;
+      continue;
+    }
+    dist += cur - (*itleft);
+    s.erase(cur);
+    cur = *itleft;
+  }
+  cout << dist << '\n';
+  return 0;
+}
