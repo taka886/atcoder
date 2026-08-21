@@ -1,0 +1,39 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+using namespace std;
+#define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+
+struct q{
+  int R;
+  int C;
+};
+
+int main(void){
+  long long n, m;
+  set<long long> s;
+  cin >> n >> m;
+  vector<int> row(n + 1, -1);
+  vector<int> col(n + 1, -1);
+  vector<q> query(m);
+  rep(i, m){
+    long long r, c;
+    cin >> r >> c;
+    query[i].R = r;
+    query[i].C = c;
+    s.insert(i);
+    if(row[r] != -1){
+      s.erase(row[r]);
+      col[query[row[r]].C] = -1; // 同じ番号の場所を初期化
+    }
+    if(col[c] != -1 && col[c] != row[r]){
+      s.erase(col[c]);
+      row[query[col[c]].R] = -1; // 同じ番号の場所を初期化
+    }
+    row[r] = i;
+    col[c] = i;
+  }
+  cout << s.size() << '\n';
+  return 0;
+}
