@@ -1,0 +1,30 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+#define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+
+int main(void){
+  long long n, left=2, total = 0;
+  cin >> n;
+  for(long long i=1; i<n; i++){ // leftは探索範囲として含まない。
+    if(left == i) left = i + 1; 
+    for(long long j=left; j<=n; j++){
+      string i_num = to_string(i);
+      string j_num = to_string(j);
+      cout << "? "<< i << " " << j << '\n';
+      string ans;
+      cin >> ans;
+      if(ans == "No"){
+        left = j;
+        break;
+      }
+      if(j == n) left = n + 1;
+    }
+    total += left - i - 1;
+  }
+  string T = to_string(total);
+  cout << "! " << total << '\n';
+  return 0;
+}
