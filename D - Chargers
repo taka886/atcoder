@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <queue>
+using namespace std;
+#define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+
+int main(void){
+  long long Q, V;
+  cin >> Q >> V;
+  priority_queue<long long> out;
+  rep(i, Q){
+    long long t;
+    cin >> t;
+    long long t_0;
+    cin >> t_0;
+    if(t == 1){
+      long long w_0;
+      cin >> w_0;
+      out.push(w_0 - t_0);
+      continue;
+    }
+    if(out.empty()){
+      cout << -1 << '\n';
+      continue;
+    }
+    cout << min(out.top() + t_0, V) << '\n';
+    out.pop();
+  }
+  return 0;
+}
