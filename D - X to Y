@@ -1,0 +1,25 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+#define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+
+int main(void){
+  long long n;
+  cin >> n;
+  rep(i, n){
+    long long x, y, k, total = 0;
+    cin >> x >> y >> k;
+    while(x != y){
+      long long big = max(x, y);
+      long long small = min(x, y);
+      big = big / k;
+      total++;
+      x = small;
+      y = big;
+    }
+    cout << total << '\n';
+  }
+  return 0;
+}
