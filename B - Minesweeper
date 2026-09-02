@@ -1,0 +1,36 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+#define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+
+int main(void){
+  long long h, w;
+  cin >> h >> w;
+  vector<string>  m(h);
+  rep(i, h) cin >> m[i];
+  int x[8] = {-1, 0, 1, 0, 1, -1, 1, -1};
+  int y[8] = {0, -1, 0, 1, 1, -1, -1, 1};
+  rep(i, h){
+    rep(j, w){
+      if(m[i][j] != '#'){
+        long long num = 0;
+          long long curx;
+          long long cury;
+        rep(t, 8){
+          curx = j + x[t];
+          cury = i + y[t];
+          if(curx >= 0 && curx < w && cury >= 0 && cury < h){
+            if(m[cury][curx] != '.'){
+              num++;
+            }
+          }
+        }
+        cout << num << (j == w - 1 ? "\n" : "");
+      }
+      else cout << '#' << (j == w - 1 ? "\n" : "");
+    }
+  }
+  return 0;
+}
