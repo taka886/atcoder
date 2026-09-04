@@ -1,0 +1,40 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+#define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+
+long long sol(long long n, string &s, vector<long long> &x, vector<long long> &y){
+  vector<vector<long long>> m(n, vector<long long>(2));
+  
+  m[0][0] = (s[0] == 'R' ? 0 : -1 * x[0]);
+  m[0][1] = (s[0] == 'S' ? 0 : -1 * x[0]);
+  for(long long i = 1; i < n; i++){
+    if(s[i] == 'R'){
+      m[i][0] = max(m[i - 1][0], m[i - 1][1]);
+      m[i][1] = max(m[i - 1][0] - x[i] + y[i - 1], m[i - 1][1] - x[i]);
+    }
+    else{
+      m[i][0] = max(m[i - 1][0] - x[i], m[i - 1][1] - x[i]);
+      m[i][1] = max(m[i - 1][0] + y[i - 1], m[i - 1][1]);
+    }
+  }
+  return max(m[n - 1][0], m[n - 1][1]);
+}
+
+int main(void){
+  long long t;
+  cin >> t;
+  rep(i, t){
+    long long n;
+    string s;
+    cin >> n >> s;
+    vector<long long> x(n);
+    rep(o, n) cin >> x[o];
+    vector<long long> y(n - 1);
+    rep(u, n - 1) cin >> y[u];
+    cout << sol(n, s, x, y) << '\n';
+  }
+  return 0;
+}
