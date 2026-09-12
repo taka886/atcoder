@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 #define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+#define llong long long
 
 int main(void){
   
