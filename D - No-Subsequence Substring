@@ -1,0 +1,56 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+#define rep(i, n) for(long long i=0; i<(long long)(n); i++)
+#define llong long long
+string s, t;
+
+int main(void){
+  llong total = 0;
+  cin >> s >> t;
+  llong j = 0; // 探索開始範囲
+  vector<llong> stnum(t.size(), 0);
+  //rep(i, t.size()){
+   //if(s[i] == t[0]){
+     //llong num;
+     //num = check(i, j);
+     //stnum[num]++;
+   //}
+  //}
+  //total += j - 0;
+  
+  for(llong i = 0; i < s.size(); i++){
+    if(i != 0 && s[i - 1] == t[0]){
+      rep(u, t.size()){
+        llong o = t.size() - 1 - u;
+        if(stnum[o] != 0){
+          stnum[o]--;
+          break;
+        }
+      }
+    } // 状況を整える
+    if(stnum[t.size() - 1] > 0){
+      total += j - i - 1;
+      continue;
+    } // 既に部分文字列が存在する場合打ち切り
+    while(stnum[t.size() - 1] == 0 && j < s.size()){
+      rep(u, t.size()){
+        llong o = t.size() - 1 - u;
+        if(s[j] == t[o]){
+          if(o == 0){
+            stnum[0] += 1;
+            continue;
+          }
+          stnum[o] += stnum[o - 1];
+          stnum[o - 1] = 0;
+        } // その文字が出たら文字列の数を更新
+      }
+      j++;
+    } // 部分文字列が存在しないとき、存在する領域まで拡張
+    total += (j != s.size() ? j - i - 1 : (stnum[t.size() - 1] > 0 ? j - i - 1 : j - i));
+  }
+  cout << total << '\n';
+  return 0;
+}
